@@ -26,9 +26,16 @@ Change your shell to that directory:
 cd nipraxis-work
 ```
 
-Now:
+Nexc, clone the repository:
 
 ```
+git clone https://github.com/nipraxis/first-validation
+```
+
+Then
+
+```
+cd first-validation
 python get_data.py
 ```
 
