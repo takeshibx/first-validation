@@ -41,6 +41,11 @@ terminal and then copy-pasting the URL.  For example, for me, that would be
 `git clone https://github.com/matthew-brett/first-validation` **but you need to
 make sure you clone your own fork, with your own URL**.
 
+```
+# Your git clone command here:
+git clone https://github.com/your-github-username/first-valation
+```
+
 Next:
 
 ```
@@ -50,7 +55,7 @@ ls
 ```
 
 We are going to be working on some fixes, to be proposed to the *upstream
-repostory* at <https://github.com/nipraxis/first-validation>.  The upstream repository is the repository from which you created your fork above.
+repository* at <https://github.com/nipraxis/first-validation>.  The upstream repository is the repository from which you created your fork above.
 
 Whenever we work on a new set of changes we make a new *branch*.
 
@@ -112,17 +117,33 @@ python first_validation.py
 Notice the output.  Notice too that you get an `AssertionError`.  This is the error you are aiming to fix.
 
 Open the script in a text editor.  At a pinch you can open in Textedit (Mac) or
-Wordpad (Windows).   On Unix you can use the Nano editor.
+Wordpad (Windows).   On Unix you can use the Nano editor.  At a pinch you can even use the Jupyter Notebook itself, opening the `first_validation.py` file from the notebook interface.
 
 Look at the script.  Edit the script to fix the assertion error.  Run `python first_validation.py` again.  You should see another, new `AssertionError`.  If you have time, try fixing that error.
 
-Now, put the changes in your script into the Git staging area:
+When you are ready, or you think you are going to run out of time, save your changes, and check that Git can see you have made changes with:
+
+```
+git status
+```
+
+You should `first_validation.py` in red, with changes that have not been staged ready for commit.
+
+Now, put the changes into the Git staging area:
 
 ```
 git add first_validation.py
 ```
 
-Make a commit.  For now (and only for now) use the `-m` flag to add a commit message:
+Show the changes are now in the staging area with:
+
+```
+# Notice the filename should now be in green.
+git status
+```
+
+Make a commit.  For now (and only for now) use the `-m` flag to add a commit
+message:
 
 ```
 git commit -m "Fixes to the validation script"
@@ -134,4 +155,16 @@ Finally, push the changes up to your *fork*:
 git push origin fix-validation --set-upstream
 ```
 
-You will see a message at the console telling you the link to go to, to make a pull request.
+You will see a message at the console telling you the link to go to, to make
+a pull request.  In my case that link was
+"https://github.com/matthew-brett/first-validation/pull/new/fix-validation",
+but your link will be different, because it will contain your own Github user
+name.
+
+Go to that URL in your browser.
+
+Type something about your changes into the "Description".
+
+Click on "Create pull request".
+
+You should see a new page with your pull request.
