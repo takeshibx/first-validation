@@ -26,13 +26,20 @@ Change your shell to that directory:
 cd nipraxis-work
 ```
 
-Nexc, clone the repository:
+Next go to this page : <https://github.com/nipraxis/first-validation>
 
-```
-git clone https://github.com/nipraxis/first-validation
-```
+Click on the "Fork" button on the mid-top-right.
 
-Then
+Accept the defaults and click on "Create fork"
+
+You will find yourself at the page for your new Fork.  In my case that is <https://github.com/matthew-brett/first-validation> but the address will have your username in it, rather than `matthew-brett`.
+
+Copy the URL.
+
+Clone the repository from the command line, by typing `git clone` at the
+terminal and then copy-pasting the URL.  For example, for me, that would be
+`git clone https://github.com/matthew-brett/first-validation` **but you need to
+make sure you clone your own fork, with your own URL**.
 
 ```
 cd first-validation
@@ -67,8 +74,9 @@ Check the files are in the `data` sub-directory with:
 ls data
 ```
 
-You will see and extra file in that directory, called `data_hashes.txt`, of
-which more soon.
+You will see and extra file in that directory, called `data_hashes.txt`.
+
+
 
 Next run the data validation script:
 
