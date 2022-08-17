@@ -41,8 +41,35 @@ terminal and then copy-pasting the URL.  For example, for me, that would be
 `git clone https://github.com/matthew-brett/first-validation` **but you need to
 make sure you clone your own fork, with your own URL**.
 
+Next:
+
 ```
 cd first-validation
+# Show the files
+ls
+```
+
+We are going to be working on some fixes, to be proposed to the *upstream
+repostory* at <https://github.com/nipraxis/first-validation>.  The upstream repository is the repository from which you created your fork above.
+
+Whenever we work on a new set of changes we make a new *branch*.
+
+We do that like this:
+
+```
+# Create the branch (bookmark).
+git branch fix-validation
+# Show the branches verbosely (-v).  Notice the asterisk on "main".
+git branch -v
+# Checkout the branch ready for work.
+git checkout fix-validation
+# Show the branches verbosely (-v).  Notice the asterisk on "fix-validation".
+git branch -v
+```
+
+Now you are ready to do the work.  First get the images you need.
+
+```
 python get_data.py
 ```
 
@@ -74,12 +101,37 @@ Check the files are in the `data` sub-directory with:
 ls data
 ```
 
-You will see and extra file in that directory, called `data_hashes.txt`.
+You will see an extra file in that directory, called `data_hashes.txt`.
 
-
-
-Next run the data validation script:
+Next run the as-yet-unfixed data validation script:
 
 ```
 python first_validation.py
 ```
+
+Notice the output.  Notice too that you get an `AssertionError`.  This is the error you are aiming to fix.
+
+Open the script in a text editor.  At a pinch you can open in Textedit (Mac) or
+Wordpad (Windows).   On Unix you can use the Nano editor.
+
+Look at the script.  Edit the script to fix the assertion error.  Run `python first_validation.py` again.  You should see another, new `AssertionError`.  If you have time, try fixing that error.
+
+Now, put the changes in your script into the Git staging area:
+
+```
+git add first_validation.py
+```
+
+Make a commit.  For now (and only for now) use the `-m` flag to add a commit message:
+
+```
+git commit -m "Fixes to the validation script"
+```
+
+Finally, push the changes up to your *fork*:
+
+```
+git push origin fix-validation --set-upstream
+```
+
+You will see a message at the console telling you the link to go to, to make a pull request.
