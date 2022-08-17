@@ -60,3 +60,13 @@ directory was `/Users/mb312/Library/Caches/nipraxis/0.4/` but your directory
 will be specific to you, and the current version of the `nipraxis` module.
 
 If there are any errors, let us know.
+
+Check the files are in the `data` sub-directory with:
+
+```
+ls data
+```
+
+You will see and extra file in that directory, called `data_hashes.txt`, of
+which more soon.
+
