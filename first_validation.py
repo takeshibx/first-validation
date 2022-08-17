@@ -31,7 +31,9 @@ def hash_for_fname(fname):
     # Convert a string filename to a Path object.
     fpath = Path(fname)
     # Your code here.
-    return 'not-really-the-hash'
+    fpath_contents = fpath.read_bytes()
+    hashes = sha1(fpath_contents).hexdigest()
+    return hashes
 
 
 # Fill in the function above to make the test below pass.
@@ -40,7 +42,7 @@ calc_hash = hash_for_fname(example_pth)
 exp_hash = '7fa09f0f0dc11836094b8d360dc63943704796a1'
 assert calc_hash == exp_hash, f'{calc_hash} does not match {exp_hash}'
 
-
+import numpy as np
 def check_hashes(hash_fname):
     """ Check hashes and filenames in given in file `hash_fname`
     """
@@ -48,13 +50,24 @@ def check_hashes(hash_fname):
     # Directory containing hash filenames file.
     data_dir = hash_pth.parent
     # Read in text for hash filename
+    hash_pth_text = hash_pth.read_text()
+    split_text = np.array(hash_pth_text.split())
+    expected_hashes = split_text[[0,2,4]]
+    filename = split_text[[1,3,5]]
+    fpth = list(data_dir / filename)
+    hash_fpth = [sha1(i.read_bytes()).hexdigest() for i in fpth]
+    result = expected_hashes == hash_fpth
+    if all(result):
+        return True
+    else:
+        return False
     # Split into lines.
     # For each line:
         # Split each line into expected_hash and filename
         # Calculate actual hash for given filename.
         # Check actual hash against expected hash
         # Return False if any of the hashes do not match.
-    return False
+    
 
 
 assert check_hashes(hashes_pth), 'Check hash list does not return True'
