@@ -30,6 +30,7 @@ def hash_for_fname(fname):
     """
     # Convert a string filename to a Path object.
     fpath = Path(fname)
+    # Your code here.
     return 'not-really-the-hash'
 
 
@@ -44,13 +45,15 @@ def check_hashes(hash_fname):
     """ Check hashes and filenames in given in file `hash_fname`
     """
     hash_pth = Path(hash_fname)
+    # Directory containing hash filenames file.
+    data_dir = hash_pth.parent
     # Read in text for hash filename
     # Split into lines.
     # For each line:
-    #     Split each line into expected_hash and filename
-    #     Calculate actual hash for given filename.
-    #     Check actual hash against expected hash
-    # Return False if any of the hashes do not match.
+        # Split each line into expected_hash and filename
+        # Calculate actual hash for given filename.
+        # Check actual hash against expected hash
+        # Return False if any of the hashes do not match.
     return False
 
 
