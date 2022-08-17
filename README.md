@@ -70,3 +70,8 @@ ls data
 You will see and extra file in that directory, called `data_hashes.txt`, of
 which more soon.
 
+Next run the data validation script:
+
+```
+python first_validation.py
+```
