@@ -8,6 +8,9 @@ from hashlib import sha1
 data_pth = Path() / 'data'
 example_pth =  data_pth / '24719.f3_beh_CHYM.csv'
 
+if not example_pth.is_file():
+    raise RuntimeError('Have you run the "get_data.py" script')
+
 contents = example_pth.read_bytes()
 hash_value = sha1(contents).hexdigest()
 
